@@ -31,31 +31,19 @@
     Let \( \sigma^2 \) be the squared variance proxy of \( X \).
     Then \( \log \expect \exp sX \leq \frac12 s^2 \sigma^2 \)
     for all \( s > 0 \).
-    We first expand the \( \exp \) on the left into its Taylor series
-    and then use linear approximation for the \( \log \)
-    at \( 1 + \frac12 s^2\operatorname{Var}X \):
-    \[\begin{split}
-        \log \expect \exp sX
-        &= \log \left( 1 + 0 + \frac{s^2}{2} \operatorname{Var} X
-        + \sum_{k\geq 3} \frac{1}{k!}s^k\expect[X^k]
-    \right)
-    \\
-        &= \frac{1}{1}(\frac{s^2}{2} \operatorname{Var}X + s^3 R)
-        + o(\frac{s^2}{2} \operatorname{Var}X + s^3 R),
-    \end{split} \]
     \[
-        R = s^3\sum_{k\geq3} \frac{1}{k!}s^{k-3}\expect X^k
+        \expect\exp sX \leq \exp \frac12 s^2 \sigma^2,
     \]
-    Thus for all \( s \), including \( s=0 \),
-    \[\begin{split}
-        \operatorname{Var}X
-        &< \frac{2}{s^2}\left(\frac12 s^2\sigma^2 - s^2R
-        - o(\frac{s^2}{2} \operatorname{Var}X + s^3R)\right)
-        \\
-        &= \sigma^2 - sR - o(\frac12{\operatorname{Var}X + sR})
-\end{split}\]
-    and consequently
     \[
+        \expect\left(1 + \frac{s^2}{2} X^2 + O(s^3X^3)\right)
+        \leq 1 + \frac{s^2\sigma^2}{2} + O(s^4\sigma^4).
+    \]
+    Thus for small enough \( s \), including \( s=0 \):
+    \[
+        \frac{s^2}{2}\operatorname{Var}{X} \leq \frac{s^2\sigma^2}{2} + O(s^3),
+    \]
+    \[
+        \operatorname{Var}{X} \leq \sigma^2 + O(s),
     \]
 \end{proof}
 
