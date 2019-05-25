@@ -47,7 +47,7 @@
     \]
 \end{proof}
 
-\begin{problem}
+\begin{problem}[2.1]
     \( X_1, \ldots, X_n \) be i.i.d. sub-Gaussian r.v.'s with squared variance proxy \( \sigma^2 \).
     Let
     \[
@@ -86,6 +86,36 @@ Reformulating, for any \( \delta > 0 \) and for
 } \]
 it should hold that
 \[ \mathbb{P}[|\hat{m} - m| > t] \leq \delta. \]
+\end{proof}
+
+\begin{problem}[2.2]
+Let \( X_1, \ldots, X_n \)
+be i.i.d. \( 2 \)-integrable rv's
+with \( \expect X_1 = m \)
+and \( \operatorname{Var}X_1 = \sigma^2 \).
+Fix \( \delta\in(0,1) \).
+Assume \( (n=kG, k, G)\in \mathbb{N}^3 \),
+\( G = 8\log\frac1\delta \).
+
+\[
+\overline{X}_g = \frac1k \sum_{i=(g-1)k+1}^{gk} X_i
+\]
+be the mean of the \( g \)'th group.
+\end{problem}
+\begin{problem}{2.2a}
+Show that \[
+\mathbb{P}(\overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}}) \leq \frac14.
+\]
+\end{problem}
+\begin{proof}
+\[\begin{split}
+\mathbb{P}(\overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}}) \leq \frac14
+&= \mathbb{P}((\overline{X}_g - m)^2 \geq \frac{4\sigma^2}{k^2}) \\
+&\leq k\expect(\overline{X}_g - m)^2\frac{1}{4\sigma^2} \\
+&= \frac{k\operatorname{Var}(\overline{X}_g - m)}{4\sigma^2} \\
+&= \frac14.
+\end{split}\]
+
 \end{proof}
 
 \end{document}
