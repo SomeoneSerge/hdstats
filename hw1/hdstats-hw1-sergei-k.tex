@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+
+\newtheorem{problem}{Problem}
+
+\title{HDStats at HSE, 2019. Homework 1.}
+\author{Serge K}
+
+\newcommand{\expect}{\operatorname{\mathbb{E}}}
+
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Prove that
+    for any sub-Gaussian real-valued r.v. \( X \).
+    variance proxy upperbounds its variance:
+    \[
+        \operatorname{Var}X \leq \|X\|_{\mathrm{vp}}.
+    \]
+\end{problem}
+\begin{proof}
+    Assume, without loss of generality, that \( \expect X = 0\).
+    Let \( \sigma^2 \) be the squared variance proxy of \( X \).
+    Then \( \log \expect \exp sX \leq \frac12 s^2 \sigma^2 \)
+    for all \( s > 0 \).
+    We first expand the \( \exp \) on the left into its Taylor series
+    and then use linear approximation for the \( \log \)
+    at \( 1 + \frac12 s^2\operatorname{Var}X \):
+    \[\begin{split}
+        \log \expect \exp sX
+        &= \log \left( 1 + 0 + \frac{s^2}{2} \operatorname{Var} X
+        + \sum_{k\geq 3} \frac{1}{k!}s^k\expect[X^k]
+    \right)
+    \\
+        &= \frac{1}{1}(\frac{s^2}{2} \operatorname{Var}X + s^3 R)
+        + o(\frac{s^2}{2} \operatorname{Var}X + s^3 R),
+    \end{split} \]
+    \[
+        R = s^3\sum_{k\geq3} \frac{1}{k!}s^{k-3}\expect X^k
+    \]
+    Thus for all \( s \), including \( s=0 \),
+    \[\begin{split}
+        \operatorname{Var}X
+        &< \frac{2}{s^2}\left(\frac12 s^2\sigma^2 - s^2R
+        - o(\frac{s^2}{2} \operatorname{Var}X + s^3R)\right)
+        \\
+        &= \sigma^2 - sR - o(\frac12{\operatorname{Var}X + sR})
+\end{split}\]
+    and consequently
+    \[
+    \]
+\end{proof}
+
+\end{document}
