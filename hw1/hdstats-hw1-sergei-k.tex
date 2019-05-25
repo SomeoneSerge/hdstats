@@ -109,13 +109,25 @@ Show that \[
 \end{problem}
 \begin{proof}
 \[\begin{split}
-\mathbb{P}(\overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}}) \leq \frac14
-&= \mathbb{P}((\overline{X}_g - m)^2 \geq \frac{4\sigma^2}{k^2}) \\
+\mathbb{P}\left(\overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}}\right)
+&= \mathbb{P}\left((\overline{X}_g - m)^2 \geq \frac{4\sigma^2}{k^2}\right) \\
 &\leq k\expect(\overline{X}_g - m)^2\frac{1}{4\sigma^2} \\
 &= \frac{k\operatorname{Var}(\overline{X}_g - m)}{4\sigma^2} \\
 &= \frac14.
 \end{split}\]
 
+\end{proof}
+
+\begin{problem}[2.2b]
+Let \( \tilde{m} = \operatorname{Median}(\sum_g \delta_{\overline{X}_g}) \).
+Show that
+\[
+\mathbb{P}\left(\tilde{m} - m \geq \frac{2\sigma}{\sqrt{k}}\right)
+\leq \mathbb{P}(B \leq \frac{G}{2}),
+\]
+where \( B\sim\operatorname{Binomial}(G, \frac14) \).
+\end{problem}
+\begin{proof}
 \end{proof}
 
 \end{document}
