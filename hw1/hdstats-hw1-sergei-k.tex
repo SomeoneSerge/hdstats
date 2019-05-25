@@ -47,4 +47,45 @@
     \]
 \end{proof}
 
+\begin{problem}
+    \( X_1, \ldots, X_n \) be i.i.d. sub-Gaussian r.v.'s with squared variance proxy \( \sigma^2 \).
+    Let
+    \[
+        \hat{m} = \frac1n \sum_{i=1}^n X_i
+    \]
+    be the standard estimator of \( m = \expect X_1 \).
+    Show that for all \( \delta\in(0,1) \)
+    holds
+    \[
+        \mathbb{P}\left(|m - \hat{m}| \geq d\right) \leq \delta,
+    \]
+    with
+    \[
+            d= \sqrt{2\sigma^2 n^{-1} \log(2\delta^{-1})}.
+    \]
+\end{problem}
+\begin{proof}
+We refer to \textrm{Theorem~1.6} in MIT lectures
+which states that if \( X=(X_1, \ldots, X_n) \)
+is a vector of i.i.d. sub-Gaussian rv's with
+common squared variance proxy \( \sigma^2 \),
+then it is a sub-Gaussian rvec with same variance proxy.
+Thus \[\begin{split}
+ \|\hat{m}\|_{\textrm{vp}}^2
+ & = \|\mathbf{1}^\top \frac1n\sum_i X_i\|_{\textrm{vp}}^2 \\
+ & = \|\frac1n\sum_i X_i\|_{\textrm{vp}}^2 \\
+ & = \frac1n \sigma^2 \end{split}.\]
+Now the characterization of this fact is that
+\[
+\mathbb{P}\left[|\hat{m} - m| > t\right]
+\leq \underbrace{\exp(-\frac{nt^2}{2\sigma^2})}_{=\delta}.
+\]
+Reformulating, for any \( \delta > 0 \) and for
+\[ t = \sqrt{
+\frac{2}{n\sigma^2}\log\frac{1}{\delta}
+} \]
+it should hold that
+\[ \mathbb{P}[|\hat{m} - m| > t] \leq \delta. \]
+\end{proof}
+
 \end{document}
