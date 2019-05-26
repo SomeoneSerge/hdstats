@@ -128,6 +128,21 @@ Show that
 where \( B\sim\operatorname{Binomial}(G, \frac14) \).
 \end{problem}
 \begin{proof}
+Since \( \tilde{m} = \inf\{x:~\#\{g:~\overline{X}_g\geq x\}\} \geq \frac{G}{2} \),
+\[
+\mathbb{P}\left[\tilde{m} - m \geq t \right]
+= \mathbb{P}\left[
+\#\{g:~\overline{X}_g - m\geq t\} \geq \frac{G}{2}
+\right]
+= \mathbb{P}\left[
+\sum_g I_{[\overline{X}_g - m\geq t]} \geq \frac{G}{2}
+\right]
+\]
+Now it is not very rigorous but kind of intuitive that,
+since \( \mathbb{P}\left[ \overline{X}_g - m \geq t \right] \leq \frac14 \),
+\( \sum_g I_{\overline{X}_g - m \geq t} \)
+exceeds \( \frac{G}{2} \) not more often
+than a \( B\sim\operatorname{Binomial}(G, \frac14) \).
 \end{proof}
 
 \end{document}
