@@ -121,27 +121,31 @@ Show that \[
 Let \( \tilde{m} = \operatorname{Median}(\sum_g \delta_{\overline{X}_g}) \).
 Show that
 \[
-\mathbb{P}\left(\tilde{m} - m \geq \frac{2\sigma}{\sqrt{k}}\right)
+\mathbb{P}\left(\lvert\tilde{m} - m\rvert \geq \frac{2\sigma}{\sqrt{k}}\right)
 \leq \mathbb{P}(B \leq \frac{G}{2}),
 \]
 where \( B\sim\operatorname{Binomial}(G, \frac14) \).
 \end{problem}
 \begin{proof}
-Since \( \tilde{m} = \inf\{x:~\#\{g:~\overline{X}_g\geq x\} \geq \frac{G}{2}\} \),
-\[
-\mathbb{P}\left[\tilde{m} - m \geq \frac{2\sigma}{\sqrt{k}} \right]
-= \mathbb{P}\left[
-\#\{g:~\overline{X}_g - m\geq \frac{2\sigma}{\sqrt{k}}\} \geq \frac{G}{2}
+Since \( \tilde{m} = \inf\{x:~\#\{g:~\lvert\overline{X}_g\rvert\geq x\} \geq \frac{G}{2}\} \),
+\[\begin{split}
+\mathbb{P}\left[|\tilde{m} - m| \geq \frac{2\sigma}{\sqrt{k}} \right]
+&= \mathbb{P}\left[
+\#\{g:~|\overline{X}_g - m|\geq \frac{2\sigma}{\sqrt{k}}\} \geq \frac{G}{2}
 \right]
-= \mathbb{P}\left[
-\sum_g I_{[\overline{X}_g - m\geq \frac{2\sigma}{\sqrt{k}}]} \geq \frac{G}{2}
+\\
+&= \mathbb{P}\left[
+\sum_g I_{[|\overline{X}_g - m|\geq \frac{2\sigma}{\sqrt{k}}]} \geq \frac{G}{2}
 \right]
-\]
-Now it is not very rigorous but kind of intuitive that,
-since \( \mathbb{P}\left[ \overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}} \right] \leq \frac14 \),
-\( \sum_g I_{\overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}}} \)
-exceeds \( \frac{G}{2} \) not more often
-than a \( B\sim\operatorname{Binomial}(G, \frac14) \).
+\\
+&\leq \mathbb{P}(B\geq \frac{G}{2}).
+\end{split}\]
+The last inequality holds because
+each indicator \( I_{[|\overline{X}_g - m|\geq \frac{2\sigma}{\sqrt{k}}]} \)
+is in fact a Bernoulli trial with same success probability \( p\leq\frac14 \),
+and thus their sum is distributed as \( \operatorname{Binomial}(G, p) \).
+Tails of the latter distribution are bounded by those
+of \( B\sim\operatorname{Binomial}(G, \frac14) \).
 \end{proof}
 
 \begin{problem}[2.2c]
