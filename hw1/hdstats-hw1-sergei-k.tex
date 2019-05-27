@@ -109,10 +109,9 @@ Show that \[
 \end{problem}
 \begin{proof}
 \[\begin{split}
-\mathbb{P}\left(\overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}}\right)
+\mathbb{P}\left(|\overline{X}_g - m| \geq \frac{2\sigma}{\sqrt{k}}\right)
 &= \mathbb{P}\left((\overline{X}_g - m)^2 \geq \frac{4\sigma^2}{k^2}\right) \\
-&\leq k\expect(\overline{X}_g - m)^2\frac{1}{4\sigma^2} \\
-&= \frac{k\operatorname{Var}(\overline{X}_g - m)}{4\sigma^2} \\
+&\leq k\expect(\overline{X}_g - m)^2\frac{1}{4\sigma^2} = \frac{k\sigma^2}{4k\sigma^2} \\
 &= \frac14.
 \end{split}\]
 
@@ -128,21 +127,28 @@ Show that
 where \( B\sim\operatorname{Binomial}(G, \frac14) \).
 \end{problem}
 \begin{proof}
-Since \( \tilde{m} = \inf\{x:~\#\{g:~\overline{X}_g\geq x\}\} \geq \frac{G}{2} \),
+Since \( \tilde{m} = \inf\{x:~\#\{g:~\overline{X}_g\geq x\} \geq \frac{G}{2}\} \),
 \[
-\mathbb{P}\left[\tilde{m} - m \geq t \right]
+\mathbb{P}\left[\tilde{m} - m \geq \frac{2\sigma}{\sqrt{k}} \right]
 = \mathbb{P}\left[
-\#\{g:~\overline{X}_g - m\geq t\} \geq \frac{G}{2}
+\#\{g:~\overline{X}_g - m\geq \frac{2\sigma}{\sqrt{k}}\} \geq \frac{G}{2}
 \right]
 = \mathbb{P}\left[
-\sum_g I_{[\overline{X}_g - m\geq t]} \geq \frac{G}{2}
+\sum_g I_{[\overline{X}_g - m\geq \frac{2\sigma}{\sqrt{k}}]} \geq \frac{G}{2}
 \right]
 \]
 Now it is not very rigorous but kind of intuitive that,
-since \( \mathbb{P}\left[ \overline{X}_g - m \geq t \right] \leq \frac14 \),
-\( \sum_g I_{\overline{X}_g - m \geq t} \)
+since \( \mathbb{P}\left[ \overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}} \right] \leq \frac14 \),
+\( \sum_g I_{\overline{X}_g - m \geq \frac{2\sigma}{\sqrt{k}}} \)
 exceeds \( \frac{G}{2} \) not more often
 than a \( B\sim\operatorname{Binomial}(G, \frac14) \).
+\end{proof}
+
+\begin{problem}[2.2c]
+Show
+\[ \mathbb{P}\left[ \tilde{m} - m  \geq 4\sigma\sqrt{\frac{2}{n}\log\frac1\delta}\right] \leq \delta. \]
+\end{problem}
+\begin{proof}
 \end{proof}
 
 \end{document}
