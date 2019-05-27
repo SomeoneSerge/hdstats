@@ -153,6 +153,20 @@ Show
 \[ \mathbb{P}\left[ \tilde{m} - m  \geq 4\sigma\sqrt{\frac{2}{n}\log\frac1\delta}\right] \leq \delta. \]
 \end{problem}
 \begin{proof}
+First note that
+ \( 4\sigma\sqrt{\frac{2}{n}\log\frac1\delta}
+		 = \frac{2\sigma}{\sqrt{k}} \) just as above.
+ So it would suffice to prove \( \mathbb{P}(B\geq\frac{G}{2}) \leq \delta \).
+ \[\begin{split}
+\mathbb{P}(B \geq \frac{G}{2})
+&= \mathbb{P}\left(B \geq (1 + 1) \expect{B}\right) \\
+&\leq \exp(-\frac13 \expect{B}) = \exp(-\frac{1}{12}G) \\
+&= \exp(-\frac{1}{12} 8\log\frac1\delta) \\
+&= \exp(\frac23\log\delta) \\
+&= \delta^{\frac23}
+\end{split}\]
+which is greater than \( \delta \) (since \( \delta\in(0,1) \))
+but is as good as I could get with Chernoff's bound for tails of Binomial.
 \end{proof}
 
 \end{document}
