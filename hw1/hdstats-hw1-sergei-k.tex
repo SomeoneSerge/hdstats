@@ -169,4 +169,33 @@ which is greater than \( \delta \) (since \( \delta\in(0,1) \))
 but is as good as I could get with Chernoff's bound for tails of Binomial.
 \end{proof}
 
+\begin{problem}[3, Subgamma distributions]
+\( X_1, \ldots, X_n \)
+be independent random variables,
+\( a, b \) real numbers, such that
+\[
+\sum_{i=1}^n \expect|X_i|^k \leq \frac12 k! a^2 b^{k-2}.
+\]
+Show \( \sum_i X_i \in \operatorname{subg}(a,b) \).
+\end{problem}
+\begin{proof}
+We need to show that for all \( \theta\leq \frac1b \),
+\[ \log\expect\exp \theta|\sum_i(X_i - \expect X_i)| \leq \frac{\theta^2 a^2}{2(1-\theta b)}. \]
+Now
+\[
+\log \expect \exp \theta \sum_i (X_i - \expect X_i)
+\]
+\[\begin{split}
+\log\expect \exp \theta \sum_i(X_i - \expect X_i)
+&= \log\expect \Pi_i \exp \theta (X_i - \expect X_i) \\
+&= \log\Pi_i \expect \exp \theta (X_i - \expect X_i) \\
+&= \sum_i \log\expect \exp \theta (X_i - \expect X_i)\\
+&= \sum_i \left[\log\expect\exp\theta X_i - \theta \expect X_i\right]\\
+&\leq \sum_i \left[\expect \exp \theta X_i - 1 - \theta\expect X_i\right]\\
+&= \sum_{k\geq 2} \sum_{i=1}^n \frac{\theta^k \expect X_i^k}{k!} + n - n - \theta \sum_{i=1}^n \expect X_i + \sum_i \theta \expect X_i\\
+&\leq \frac12 a^2  \sum_{k\geq2}\theta^{k} b^{k-2}
+= \frac12 a^2 \theta^2 \sum_{k\geq 0} \theta^k b^k\\
+&= \frac12\theta^2a^2 (\frac{1}{1-\theta b}). \\
+\end{split}\]
+\end{proof}
 \end{document}
